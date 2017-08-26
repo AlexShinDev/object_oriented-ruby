@@ -22,7 +22,8 @@ class Car < Vehicle
   attr_writer :fuel
 
   def initialize(input_options)
-    super
+    super()
+    #()?
     @fuel = input_options[:fuel]
     @drive = input_options[:drive]
     @model = input_options[:model]
@@ -37,7 +38,8 @@ class Bike < Vehicle
   attr_reader :speed, :type, :weight
 
   def initialize(input_options)
-    super
+    super()
+    #()?
     @speed = input_options[:speed]
     @type = input_options[:type]
     @weight = input_options[:weight]
@@ -49,7 +51,11 @@ class Bike < Vehicle
 end
 
 
-car = Car.new(fuel: "18gal", drive: 2, model: "Honda")
-bike = Bike.new(speed: "20mph", type: "mountain", weight: 10)
+car = Car.new(
+              fuel: "18gal", drive: 2, model: "Honda"
+              )
+bike = Bike.new(
+                speed: "20mph", type: "mountain", weight: 10
+                )
 
 p car.fuel
