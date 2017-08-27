@@ -10,7 +10,14 @@ class Card
   def initialize(card_array)
     @question = card_array[0]
     @answer = card_array[1]
+    if @question == "What is the capital of Illinois?"
+      @question = @question + " Is it: " + @answer + ", Sacramento, Atlanta, or Chicago"
+    elsif @question == "Is Africa a country or a continent?"
+      @question == @question + " Is it: country, or " + @answer
+    end
+
   end
+
 end
 
 class Deck
