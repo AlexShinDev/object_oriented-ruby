@@ -52,20 +52,20 @@ score = 0
 question_num = 0
 incorrect_trivia_data = {}
 while deck.remaining_cards > 0
-  question_num = question_num + 1
+  question_num += 1
   card = deck.draw_card # card is an instance of the Card class
   puts card.question
   user_answer = gets.chomp
   if user_answer.downcase == card.answer.downcase 
-    score = score + 1
+    score += 1
     puts "Correct! You have gotten #{score} out of #{question_num} questions right!"
   elsif lives == 1
-    lives =- 1
+    lives += 1
     puts "Incorrect! Give it another try:"
     user_answer = gets.chomp
     incorrect_trivia_data[card.question] = card.answer
     if user_answer.downcase == card.answer.downcase
-      score = score + 1
+      score += 1
       puts "#Correct! You have gotten #{score} out of #{question_num} questions right!"
     else
       puts "#Incorrect! You have gotten #{score} out of #{question_num} questions right!"
@@ -95,8 +95,3 @@ if score < 3
   else
   end
 end
-
-
-
-
-
