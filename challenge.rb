@@ -54,6 +54,12 @@ while deck.remaining_cards > 0
   if user_answer.downcase == card.answer.downcase
     puts "Correct!"
   else
-    puts "Incorrect!"
+    puts "Try one more time:"
+    user_answer = gets.chomp
+    if user_answer.downcase == card.answer.downcase
+      puts "Correct!"
+    else
+      puts "Incorrect!"
+    end
   end
 end
