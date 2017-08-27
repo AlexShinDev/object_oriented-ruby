@@ -47,19 +47,26 @@ deck = Deck.new(trivia_data) # deck is an instance of the Deck class
 # p card.question
 # p card.answer
 
+lives = 1
+
 while deck.remaining_cards > 0
   card = deck.draw_card # card is an instance of the Card class
   puts card.question
   user_answer = gets.chomp
-  if user_answer.downcase == card.answer.downcase
+  if user_answer.downcase == card.answer.downcase 
     puts "Correct!"
-  else
-    puts "Try one more time:"
+  elsif lives == 1
+    lives =- 1
+    puts "Incorrect! Give it another try:"
     user_answer = gets.chomp
     if user_answer.downcase == card.answer.downcase
       puts "Correct!"
     else
-      puts "Incorrect!"
+      puts "Incorrect! Game Over..."
+      break
     end
+  else 
+    puts "Incorrect! Game Over..."
+    break
   end
 end
