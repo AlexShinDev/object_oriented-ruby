@@ -11,9 +11,9 @@ class Card
     @question = card_array[0]
     @answer = card_array[1]
     if @question == "What is the capital of Illinois?"
-      @question = @question + " Is it: " + @answer + ", Sacramento, Atlanta, or Chicago"
+      @question = "#{@question} Is it: #{@answer}, Sacramento, Atlanta, or Chicago"
     elsif @question == "Is Africa a country or a continent?"
-      @question == @question + " Is it: country, or " + @answer
+      @question == "#{@question} Is it: country, or #{@answer}?"
     end
 
   end
@@ -65,13 +65,12 @@ while deck.remaining_cards > 0
     user_answer = gets.chomp
     incorrect_trivia_data[card.question] = card.answer
     if user_answer.downcase == card.answer.downcase
-      score += 1
-      puts "#Correct! You have gotten #{score} out of #{question_num} questions right!"
+      puts "#Correct! You have gotten #{score} out of #{question_num} questions right on the first try!"
     else
-      puts "#Incorrect! You have gotten #{score} out of #{question_num} questions right!"
+      puts "#Incorrect! You have gotten #{score} out of #{question_num} questions right on the first try!"
     end
   else 
-    puts "#Incorrect! You have gotten #{score} out of #{question_num} questions right!"
+    puts "#Incorrect! You have gotten #{score} out of #{question_num} questions right on the first try!"
     incorrect_trivia_data[card.question] = card.answer
   end
 end
@@ -88,7 +87,7 @@ if score < 3
       puts card.question
       user_answer = gets.chomp
       if user_answer.downcase == card.answer.downcase 
-        puts "Correct!"
+        puts "Correct! Try again to get a higher score!"
       else "Incorrect! Game over..."
       end
     end
